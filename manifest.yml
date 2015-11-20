@@ -1,0 +1,11 @@
+applications:
+- disk_quota: 512M
+  host: hellotodo-with-strongloop
+  name: hellotodo-with-strongloop
+  command: node .
+  instances: 1
+  memory: 1024M
+  timeout: 180
+  buildpack: sdk-for-nodejs
+env:
+  NODE_MODULES_CACHE: false
