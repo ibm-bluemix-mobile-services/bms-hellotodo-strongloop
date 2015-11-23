@@ -3,12 +3,12 @@ console.log("packageVersion :: " + packageVersion);
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-var passport = require('passport');
 
 var app = module.exports = loopback();
 
 // ------------ Protecting backend APIs with Mobile Client Access start -----------------
 var MCABackendStrategy = require('bms-mca-token-validation-strategy').MCABackendStrategy;
+var passport = require('passport');
 passport.use(new MCABackendStrategy())
 app.use(passport.initialize());
 app.delete('/api/Items/:id', passport.authenticate('mca-backend-strategy', {session: false}));
