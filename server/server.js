@@ -6,12 +6,27 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
-// ------------ Protecting backend APIs with Mobile Client Access start -----------------
-var MCABackendStrategy = require('bms-mca-token-validation-strategy').MCABackendStrategy;
+// ------------ Protecting mobile backend with Mobile Client Access start -----------------
+
+// Load passport (http://passportjs.org)
 var passport = require('passport');
+
+// Get the MCA passport strategy to use
+var MCABackendStrategy = require('bms-mca-token-validation-strategy').MCABackendStrategy;
+
+// Tell passport to use the MCA strategy
 passport.use(new MCABackendStrategy())
+
+// Tell application to use passport
 app.use(passport.initialize());
+
+// Protect DELETE endpoint so it can only be accessed by HelloTodo mobile samples
 app.delete('/api/Items/:id', passport.authenticate('mca-backend-strategy', {session: false}));
+
+// Protect /protected endpoint which is used in Getting Started with Bluemix Mobile Services tutorials
+app.get('/protected', passport.authenticate('mca-backend-strategy', {session: false}), function(req, res){
+	res.send("Hello, this is a protected resouce of the mobile backend application!");
+});
 // ------------ Protecting backend APIs with Mobile Client Access end -----------------
 
 app.start = function () {
