@@ -19,7 +19,8 @@ HelloTodo is a simple todo list application created with [StrongLoop](https://st
 Below video demonstrates how the HelloTodo application was created. It might be instrumental in understanding how does StrongLoop, LoopBack and Mobile Client Access work. If you're just interested in running the app in Bluemix you may skip this video. 
 
 <a href="https://www.youtube.com/watch?v=fAM0wOfvelY" target="_blank">
-![image](video-img.png)</a>
+<img src="video-img.png"/>
+</a>
 
 
 ## Deploying HelloTodo application to Bluemix
