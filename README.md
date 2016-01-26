@@ -56,7 +56,7 @@ To manually deploy this application to Bluemix perform the following steps
 1. Make sure you have [IBM Bluemix](https://console.ng.bluemix.net/) account
 2. Make sure you have [Cloud Foundry CLI](https://www.ng.bluemix.net/docs/cli/downloads.html) tool installed
 3. Open terminal and 	verify that cf tool is available by running `cf --version`
-1. Setup `cf` tool to work with a Bluemix API server of your choice, for instance `cf target https://api.ng.bluemix.net`
+1. Setup `cf` tool to work with a Bluemix API server of your choice, for instance `cf api https://api.ng.bluemix.net`
 
 	> Use following URLs for other Bluemix regions:
 	
