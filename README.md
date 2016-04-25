@@ -16,7 +16,7 @@ HelloTodo is a simple todo list application created with [StrongLoop](https://st
 
 ## Creating this application 
 
-Below video demonstrates how the HelloTodo application was created. It might be instrumental in understanding how does StrongLoop, LoopBack and Mobile Client Access work. If you're just interested in running the app in Bluemix you may skip this video. 
+The video below demonstrates how the HelloTodo application was created. It might be useful for understanding how StrongLoop, LoopBack and Mobile Client Access work. If you're just interested in running the app in Bluemix, you may skip this video. 
 
 <a href="https://www.youtube.com/watch?v=fAM0wOfvelY" target="_blank">
 <img src="video-img.png"/>
@@ -36,11 +36,11 @@ Start by creating a mobile backend on Bluemix by using the MobileFirst Services 
 2. Open Bluemix Catalog [https://console.ng.bluemix.net/catalog/](https://console.ng.bluemix.net/catalog/)
 3. Find and select the [MobileFirst Services Starter](https://console.ng.bluemix.net/catalog/starters/mobilefirst-services-starter/) under the Boilerplates section
 4. Select the space you want to add your mobile backend to
-5. Enter the name and a host for your mobile backend. 
+5. Enter the name and a host for your mobile backend 
 6. Optionally you can change service plans
 7. Click CREATE button
 
-As a result of the above steps Bluemix will provision a Node.JS runtime and populate it with a HelloTodo application created using StrongLoop. This application uses LoopBack framework to expose the `/api/Items` API which will be used by Web UI. This reposotory contains the source code of that HelloTodo application.
+As a result of the above steps Bluemix will provision a Node.js runtime and populate it with a HelloTodo application created using StrongLoop. This application uses LoopBack framework to expose the `/api/Items` API which will be used by Web UI. This reposotory contains the source code of that HelloTodo application.
 
 > Some of the methods of the above API are protected by Mobile Client Access service, therefore they will be unaccessible from web UI. You will need to use mobile HelloTodo samples to be able to access these APIs. This will be explained later.
 
@@ -62,7 +62,7 @@ To manually deploy this application to Bluemix perform the following steps
 	
 	> US-SOUTH `https://api.ng.bluemix.net`
 	
-	> UNITED KINGDOM `https://api.en-gb.bluemix.net`
+	> UNITED KINGDOM `https://api.eu-gb.bluemix.net`
 	
 	> SYDNEY `https://api.au-syd.bluemix.net`
 
@@ -79,7 +79,7 @@ To manually deploy this application to Bluemix perform the following steps
 	cf create-service AdvancedMobileAccess Bronze my-MCA-service-instance
 	```
 	
-	> You can pick any other name instead of my-MCA-service-instane
+	> You can pick any other name instead of my-MCA-service-instance
 	
 1. Run `cf services` command and validate a new service instance was added
 
