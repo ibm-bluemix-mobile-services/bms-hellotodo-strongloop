@@ -8,7 +8,7 @@
   },
   "author": "Anton Aleksandrov",
   "dependencies": {
-    "bms-mca-token-validation-strategy": "2.x",
+    "bluemix-appid": "1.x",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "loopback": "^2.22.0",
