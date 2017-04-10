@@ -1,0 +1,13 @@
+applications:
+- disk_quota: 512M
+  host: oldhellotodo-with-strongloop
+  name: oldhellotodo-with-strongloop-donotdelete
+  command: node .
+  instances: 1
+  memory: 1024M
+  timeout: 180
+  buildpack: sdk-for-nodejs
+  services:
+   - MCABoilerplateTest_donotdelete
+env:
+  NODE_MODULES_CACHE: false
