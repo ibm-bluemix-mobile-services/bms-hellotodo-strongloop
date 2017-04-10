@@ -10,13 +10,13 @@ HelloTodo is a simple todo list application created with [StrongLoop](https://st
 * Using a MobileFirst Services Boilerplate
 * Manually deploying to Bluemix
 	* Getting setup with Bluemix
-	* Creating an instance of Mobile Client Access service
+	* Creating an instance of App ID service
 	* Cloning and deploying HelloTodo app
 * Using the HelloTodo application and API
 
 ## Creating this application 
 
-Below video demonstrates how the HelloTodo application was created. It might be instrumental in understanding how does StrongLoop, LoopBack and Mobile Client Access work. If you're just interested in running the app in Bluemix you may skip this video. 
+Below video demonstrates how the HelloTodo application was created. It might be instrumental in understanding how does StrongLoop, LoopBack and App ID work. If you're just interested in running the app in Bluemix you may skip this video. 
 
 <a href="https://www.youtube.com/watch?v=fAM0wOfvelY" target="_blank">
 <img src="video-img.png"/>
@@ -42,7 +42,7 @@ Start by creating a mobile backend on Bluemix by using the MobileFirst Services 
 
 As a result of the above steps Bluemix will provision a Node.JS runtime and populate it with a HelloTodo application created using StrongLoop. This application uses LoopBack framework to expose the `/api/Items` API which will be used by Web UI. This reposotory contains the source code of that HelloTodo application.
 
-> Some of the methods of the above API are protected by Mobile Client Access service, therefore they will be unaccessible from web UI. You will need to use mobile HelloTodo samples to be able to access these APIs. This will be explained later.
+> Some of the methods of the above API are protected by App ID service, therefore they will be unaccessible from web UI. You will need to use mobile HelloTodo samples to be able to access these APIs. This will be explained later.
 
 Usually it might take couple of minutes for your application to be provisioned and started. Once you're back to your Bluemix Application Dashboard click on an application route found in the top part of a screen. 
 
@@ -69,17 +69,17 @@ To manually deploy this application to Bluemix perform the following steps
 1. Login with your Bluemix credentials and pick your organization and space by running `cf login`
 
 1. Make sure you're in a right region, organization and space by running `cf target`	
-### Creating an instance of Mobile Client Access service
+### Creating an instance of App ID service
 
-1. HelloTodo app requires an instance of a Mobile Client Access service to be bound. Mobile Client Access is a service that provides authentication and monitoring capabilities for your Bluemix apps. 
+1. HelloTodo app requires an instance of a App ID service to be bound. App ID is a service that provides authentication for your Bluemix apps. 
 
-1. Run the following command to create a new instance of Mobile Client Access service if your space. 
+1. Run the following command to create a new instance of App ID service if your space. 
 
 	```Shell
-	cf create-service AdvancedMobileAccess Bronze my-MCA-service-instance
+	cf create-service AdvancedMobileAccess "Graduated tier" my-APPID-service-instance
 	```
 	
-	> You can pick any other name instead of my-MCA-service-instane
+	> You can pick any other name instead of my-APPID-service-instane
 	
 1. Run `cf services` command and validate a new service instance was added
 
@@ -93,18 +93,18 @@ To manually deploy this application to Bluemix perform the following steps
 	
 1. Edit `manifest.yml` file. Change the `host` property to some unique value. There might be other applications deployed to Bluemix with `hellotodo-with-strongloop` host. If do not change it your deployment might fail. 
 
-1. Edit `manifest.yml` file and add the services section. Add the Mobile Client Access service instance name created in previous steps. Final result should look like this
+1. Edit `manifest.yml` file and add the services section. Add the App ID service instance name created in previous steps. Final result should look like this
 
 	![image](updated-manifest.png) 
 
-1. Use `cf push` command to deploy your application to Bluemix, bind it to Mobile Client Access service instance and start it. 
+1. Use `cf push` command to deploy your application to Bluemix, bind it to App ID service instance and start it. 
 
 1. Once deployment completes successfully use `cf apps` command to see the list of available applications and their routes
 
 1. Your Bluemix application should be available at `https//{hostname-from-manifest.yml}.mybluemix.net`
 
 ## Using the HelloTodo application and API
-You will see a HelloTodo web app. Start by following the guided experience steps described in the web UI. Eventually you will try to DELETE a todo item and will discover that this action can only be complete when using the HelloTodo mobile apps samples. This is due to a fact that the mobile backend is by default protected by a Mobile Client Access - a Bluemix service that provides security and monitoring functionality for mobile backends. 
+You will see a HelloTodo web app. Start by following the guided experience steps described in the web UI. Eventually you will try to DELETE a todo item and will discover that this action can only be complete when using the HelloTodo mobile apps samples. This is due to a fact that the mobile backend is by default protected by a App ID - a Bluemix service that provides security and monitoring functionality for mobile backends. 
 
 > You might also want to hit the "View API Reference" button on web UI to see the API specs.
 
